@@ -1,20 +1,35 @@
-Rain[] r = new Rain[100];
-Catcher c1;
+int index = 1; 
+int oldTime = 0;
+int currentTime = 0;
+int timeChange = 0;
+
+Rain[] drops = new Rain[100];
+Catcher c;
 
 void setup() {
   size(displayWidth, displayHeight);
-  for (int i = 0; i < r.length; i++) {
-      r[i] = new Rain();
+  for (int i = 0; i < drops.length; i++) {
+    drops[i] = new Rain();
   }
-  c1 = new Catcher();
+  c = new Catcher();
 }
 
 void draw() {
   background(136, 205, 250);
-  for (int i = 0; i < r.length; i++) {
-    r[i].display();
-    r[i].drop();
+  if (millis() - oldTime >= 3000) {
+    oldTime = millis();
+    index++;
   }
-  c1.display();
+  for (int i = 0; i < index; i++) {
+    drops[i].display();
+    drops[i].drop();
+  }
+  c.display();
+}
+
+void mousePressed() {
+  if (index < drops.length) {
+    index++;
+  }
 }
 
