@@ -3,7 +3,8 @@ class Catcher {
   int d;
 
   Catcher() {
-    d = 100;
+    loc = new PVector();
+    d = 75;
   }
 
   void display() {

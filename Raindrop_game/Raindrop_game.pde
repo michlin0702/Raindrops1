@@ -1,3 +1,7 @@
+PImage raindrop;
+int score = 0;
+int tx = 0;
+int ty = 100;
 int index = 1; 
 int oldTime = 0;
 int currentTime = 0;
@@ -8,6 +12,7 @@ Catcher c;
 
 void setup() {
   size(displayWidth, displayHeight);
+  raindrop = loadImage("Raindrops.png");
   for (int i = 0; i < drops.length; i++) {
     drops[i] = new Rain();
   }
@@ -16,13 +21,16 @@ void setup() {
 
 void draw() {
   background(136, 205, 250);
-  if (millis() - oldTime >= 3000) {
+  text("SCORE: 0", tx, ty);
+  textSize(100);
+  if (millis() - oldTime >= 1500) {
     oldTime = millis();
     index++;
   }
   for (int i = 0; i < index; i++) {
     drops[i].display();
     drops[i].drop();
+    drops[i].checkCatcher(c);
   }
   c.display();
 }
