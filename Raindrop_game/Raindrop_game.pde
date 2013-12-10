@@ -21,7 +21,7 @@ void setup() {
 
 void draw() {
   background(136, 205, 250);
-  text("SCORE: 0", tx, ty);
+  text(score, tx, ty);
   textSize(100);
   if (millis() - oldTime >= 1500) {
     oldTime = millis();
