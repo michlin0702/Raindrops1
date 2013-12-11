@@ -1,15 +1,15 @@
 class Catcher {
+  PImage bucket;
   PVector loc;
-  int d;
 
   Catcher() {
+    bucket = loadImage("Bucket.png");
     loc = new PVector();
-    d = 75;
   }
 
   void display() {
-    fill(5, 59, 173);
-    loc = new PVector (mouseX, height - d);
-    ellipse(loc.x, loc.y, d, d);
+    image(bucket, loc.x, loc.y, bucket.width*.5, bucket.height*.5);
+    imageMode(CENTER);
+    loc = new PVector (mouseX, height - bucket.height/2);    
   }
 }

@@ -26,7 +26,7 @@ class Rain {
   }
 
   void checkCatcher(Catcher c) {
-    if (loc.dist(c.loc) <= d/2 + c.d/2) {
+    if (loc.dist(c.loc) <= d/2 + bucket.width/2) {
       loc.set(-100,-100);
       vel.set(0,0);
       acc.set(0,0);

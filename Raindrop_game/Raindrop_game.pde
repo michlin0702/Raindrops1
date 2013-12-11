@@ -35,7 +35,7 @@ void draw() {
   c.display();
 }
 
-void mousePressed() {
+void keyPressed() {
   if (index < drops.length) {
     index++;
   }
