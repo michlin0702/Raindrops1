@@ -31,6 +31,8 @@ void setup() {
 void draw() {
   image(paris, displayWidth/2, displayHeight/2, displayWidth, displayHeight);
   text("Score: " + score, tx, ty);
+  fill(random(255), random(255), random(255));
+  text("BECAUSE CHRIS'S VOICECRACKS", 0, height/2);
   textSize(75);
   if (millis() - oldTime >= 2000) {
     oldTime = millis();
@@ -40,6 +42,7 @@ void draw() {
   for (int i = 0; i < index; i++) {
     drops[i].display();
     drops[i].drop();
+    drops[i].speed();
     drops[i].checkCatcher(c);
   }
 //Catcher will be displayed

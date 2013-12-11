@@ -1,6 +1,6 @@
 //Create a new class called Rain
 class Rain {
-//  Declare all variables and images
+//Declare all variables and images
   PImage raindrop;
   PVector loc;
   PVector vel;
@@ -10,8 +10,8 @@ class Rain {
 //Create constructor for rain, which includes rain details
   Rain() {
     loc = new PVector(random(-100, width + 100), 0);
-    vel = new PVector (0, 10);
-    acc = new PVector (0, random(1, 5));
+    vel = new PVector (0, 1);
+    acc = new PVector (0, .5);
     raindrop = loadImage("Raindrops.png");
   }
 
