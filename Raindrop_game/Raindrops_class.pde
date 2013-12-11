@@ -10,8 +10,8 @@ class Rain {
 //Create constructor for rain, which includes rain details
   Rain() {
     loc = new PVector(random(-100, width + 100), 0);
-    vel = new PVector (0, random(5, 7));
-    acc = new PVector (random(-2, 1), random(-2, 1));
+    vel = new PVector (0, 10);
+    acc = new PVector (0, random(1, 5));
     raindrop = loadImage("Raindrops.png");
   }
 
@@ -35,10 +35,11 @@ class Rain {
 //If so, raindrop location, velocity, and acceleration will reset to zero.  
 //Raindrop will then disappear.
   void checkCatcher(Catcher c) {
-    if (loc.dist(c.loc) <= d/2 + c.width/2) {
+    if (loc.dist(c.loc) <= d/2 + c.d/2) {
       loc.set(-100,-100);
       vel.set(0,0);
       acc.set(0,0);
+      score++;
     }
   }
 }
