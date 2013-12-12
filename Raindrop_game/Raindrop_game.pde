@@ -3,7 +3,7 @@
 PImage paris;
 int tx = 0;
 int ty = 100;
-int index = 1; 
+int index = 0; 
 int oldTime = 0;
 int score = 0;
 
@@ -31,8 +31,7 @@ void setup() {
 void draw() {
   image(paris, displayWidth/2, displayHeight/2, displayWidth, displayHeight);
   text("Score: " + score, tx, ty);
-  fill(random(255), random(255), random(255));
-  text("BECAUSE CHRIS'S VOICECRACKS", 0, height/2);
+  fill(33, 224, 232);
   textSize(75);
   if (millis() - oldTime >= 2000) {
     oldTime = millis();
