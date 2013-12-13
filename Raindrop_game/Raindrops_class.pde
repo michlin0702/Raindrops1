@@ -11,7 +11,7 @@ class Rain {
   Rain() {
     loc = new PVector(random(-100, width + 100), 0);
     vel = new PVector (0, 2);
-    acc = new PVector (0, 2);
+    acc = new PVector (0, 1);
     raindrop = loadImage("Raindrops.png");
   }
 
