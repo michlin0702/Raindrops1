@@ -41,6 +41,12 @@ class Rain {
       acc.set(0, 0);
       score++;
     }
+    if (loc.y > height) {
+      end = true; 
+      loc.set(-100, -100);
+      vel.set(0, 0);
+      acc.set(0, 0);
+    }
   }
 }
 

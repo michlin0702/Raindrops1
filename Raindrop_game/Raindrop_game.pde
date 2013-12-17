@@ -11,6 +11,10 @@ int index = 0;
 int oldTime = 0;
 int score = 0;
 boolean start;
+boolean end;
+int x;
+int y;
+int d = 75;
 
 //Create a new array called Rain
 Rain[] drops = new Rain[100];
@@ -26,19 +30,13 @@ void setup() {
   rw = 300;
   rh = 150;
   start = false;
-  background(0);
-  rectMode(CENTER);
-  fill(66, 158, 232);
-  rect(rx, ry, rw, rh);
-  textSize(40);
-  textAlign(CENTER, CENTER);
-  fill(0);
-  text("BEGIN", width/2, height/2);
+
   paris = loadImage("ParisRain.jpg");
   for (int i = 0; i < drops.length; i++) {
     drops[i] = new Rain();
   }
   c = new Catcher();
+  end = false;
 }
 
 //In void draw, background is set to image.  
@@ -47,7 +45,17 @@ void setup() {
 //If actual time is greater than or equal to ___, then actual time will equal old time and be reset to zero.
 //Index will increase, meaning another raindrop will fall.
 void draw() {
-  if (start ==true) {
+  if (start == false) {
+    background(0);
+    rectMode(CENTER);
+    fill(66, 158, 232);
+    rect(rx, ry, rw, rh);
+    textSize(40);
+    textAlign(CENTER, CENTER);
+    fill(0);
+    text("BEGIN", width/2, height/2);
+  }
+  else {
     image(paris, displayWidth/2, displayHeight/2, displayWidth, displayHeight);
     textAlign(LEFT);
     text("Score: " + score, tx, ty);
@@ -58,7 +66,7 @@ void draw() {
       index++;
     }
     //Catcher will be displayed
-    c.display(); 
+    c.display();
   }
   //The following for loop will run the functions to display, drop, and speed up the raindrops
   for (int i = 0; i < index; i++) {
@@ -66,6 +74,18 @@ void draw() {
     drops[i].drop();
     drops[i].speed();
     drops[i].checkCatcher(c);
+  }
+
+  if (end == true) {
+    frameRate(40);
+    colorMode(HSB, displayWidth, 230, 100);
+    background(0);
+    for (int x = 0; x < width; x += d) {
+      fill(dist(random(0, width), 0, x, 0), 100, 100);
+      ellipse(random(0, width), random(0, height), d, d);
+    }
+    textAlign(CENTER);
+    text("GAME OVER", width/2, height/2);
   }
 }
 
