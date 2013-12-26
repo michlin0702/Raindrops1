@@ -1,19 +1,19 @@
 //Declare variables and images
 //Score is a global variable
 PImage paris;
+PImage umbrella;
 int rx;
 int ry;
 int rw;
 int rh;
-int tx = 0;
-int ty = 100;
+int textx = 0;
+int texty = 100;
+int tumbrella = 150;
 int index = 0; 
 int oldTime = 0;
 int score = 0;
 boolean start;
-boolean end;
-int x;
-int y;
+int lives = 3;
 int d = 75;
 
 //Create a new array called Rain
@@ -30,13 +30,13 @@ void setup() {
   rw = 300;
   rh = 150;
   start = false;
-
   paris = loadImage("ParisRain.jpg");
+  umbrella = loadImage("RedUmbrella.png");
   for (int i = 0; i < drops.length; i++) {
     drops[i] = new Rain();
   }
   c = new Catcher();
-  end = false;
+//  end = false;
 }
 
 //In void draw, background is set to image.  
@@ -57,10 +57,12 @@ void draw() {
   }
   else {
     image(paris, displayWidth/2, displayHeight/2, displayWidth, displayHeight);
+    imageMode(CORNER);
+    image(umbrella, textx, tumbrella, umbrella.width*.15, umbrella.height*.15);
     fill(33, 224, 232);
     textAlign(LEFT);
     textSize(75);
-    text("Score: " + score, tx, ty);
+    text("Score: " + score, textx, texty);
     if (millis() - oldTime >= 2000) {
       oldTime = millis();
       index++;
@@ -76,7 +78,7 @@ void draw() {
     drops[i].checkCatcher(c);
   }
 
-  if (end == true) {
+  if (lives == 0) {
     frameRate(40);
     colorMode(HSB, displayWidth, 230, 100);
     background(0);
@@ -87,6 +89,7 @@ void draw() {
     textAlign(CENTER);
     textSize(150);
     text("GAME OVER", width/2, height/2);
+    start = false;
   }
 }
 
