@@ -57,10 +57,10 @@ void draw() {
   }
   else {
     image(paris, displayWidth/2, displayHeight/2, displayWidth, displayHeight);
-    textAlign(LEFT);
-    text("Score: " + score, tx, ty);
     fill(33, 224, 232);
+    textAlign(LEFT);
     textSize(75);
+    text("Score: " + score, tx, ty);
     if (millis() - oldTime >= 2000) {
       oldTime = millis();
       index++;
@@ -85,6 +85,7 @@ void draw() {
       ellipse(random(0, width), random(0, height), d, d);
     }
     textAlign(CENTER);
+    textSize(150);
     text("GAME OVER", width/2, height/2);
   }
 }
