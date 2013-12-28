@@ -1,6 +1,6 @@
-RAINDROPS
+*RAINDROPS*
 
-GAME ALGORITHM
+*GAME ALGORITHM*
 
 - Create a score tracking variable
 
@@ -32,7 +32,16 @@ GAME ALGORITHM
 
 		- Raindrop will disappear
 
-WHAT TO ADD TO GAME:
+
+*IMPORTANT QUESTIONS/PROBLEMS*
+
+- I cannot find a way to make the umbrellas disappear one at a time without making the code more complicated than necessary... 
+
+  As one raindrop falls off the screen, one umbrella should disappear to indicate the amount of lives the player has left
+
+
+
+*WHAT TO ADD TO GAME*
 
 - Will have levels increasing with difficulty
 
