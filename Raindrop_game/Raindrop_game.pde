@@ -8,7 +8,6 @@ int rw;
 int rh;
 int textx = 0;
 int texty = 100;
-int tumbrella = 150;
 int index = 0; 
 int oldTime = 0;
 int score = 0;
@@ -18,6 +17,7 @@ int d = 75;
 
 //Create a new array called Rain
 Rain[] drops = new Rain[100];
+Umbrella[] umbrella = new Umbrella[3];
 Catcher c;
 
 //Set up size
@@ -35,8 +35,10 @@ void setup() {
   for (int i = 0; i < drops.length; i++) {
     drops[i] = new Rain();
   }
+  for (int u = 0, u < umbrella.length; u++) {
+    umbrella[i] = new Umbrella();
+  }
   c = new Catcher();
-//  end = false;
 }
 
 //In void draw, background is set to image.  
@@ -57,8 +59,9 @@ void draw() {
   }
   else {
     image(paris, displayWidth/2, displayHeight/2, displayWidth, displayHeight);
-    imageMode(CORNER);
-    image(umbrella, textx, tumbrella, umbrella.width*.15, umbrella.height*.15);
+    for (int u = 0; u < index; u++) {
+     umbrella[u].display(); 
+    }
     fill(33, 224, 232);
     textAlign(LEFT);
     textSize(75);
