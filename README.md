@@ -2,35 +2,55 @@
 
 *GAME ALGORITHM*
 
+- Create a start screen with "BEGIN" button, once clicked, game starts
+
 - Create a score tracking variable
 
 - Create a raindrop array
 
 	- Set number of desired raindrops
 
-- Create a catcher to "catch" falling raindrops
+- Create a catcher class
+
+	- Catcher serves to "catch" falling raindrops
 
 	- Set catcher x coordinate to follow mouse
 
 - Create a raindrop
 	
-	- Each raindrop should have a location, velocity, and possibly an acceleration, if wanted
-		
+	- Create functions to control location, velocity, and acceleration
+
 		- Location: at top of screen
 		
-		- Velocity: random value between _ and _ 
+		- Velocity: random value between 0 and 2
 
-- One raindrop will fall (0.move)
+		- Acceleration: random value between 0 and 1
 
-	- After raindrop falls, after set time interval, next raindrop will fall
+- Create an umbrella array
 
-- Check to see if raindrop touches catcher (function)
+- Create three umbrellas to serve as lives by creating three different location vectors
 
-- OBJECTIVE: "Catch" falling raindrops by moving catcher
+- One raindrop will fall
+
+	- Next raindrop set to fall after set time interval
+
+- Create function to check to see if raindrop touches catcher
+
+- If falling raindrops caught by moving catcher,
 		
-		- Player's score will increase
+	- Player's score will increase
 
-		- Raindrop will disappear
+	- Raindrop will disappear
+
+- If falling raindrops not caught by moving catcher,
+
+	- One life will be lost
+
+- If catcher misses three raindrops, game will be over
+
+- Create a game over screen with "START OVER" button
+
+- Once button is clicked, new game begins, lives reset to 3, and score resets to 0
 
 
 *IMPORTANT QUESTIONS/PROBLEMS*
