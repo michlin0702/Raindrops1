@@ -1,13 +1,13 @@
-//Create a new class called Rain
+//Create a new class called Rain, which will control the game's raindrops
 class Rain {
-  //Declare all variables and images
+  //Declare variables and images
   PImage raindrop;
   PVector loc;
   PVector vel;
   PVector acc;
   int d = 20;
 
-  //Create constructor for rain, which includes rain details
+  //Create constructor for rain, which includes raindrop details
   Rain() {
     loc = new PVector(random(d, width - d), 0);
     vel = new PVector (0, 2);
@@ -21,7 +21,7 @@ class Rain {
     imageMode(CENTER);
   }
 
-  //The following function will add velocity vector to location vector to move drop raindrops
+  //The following function will add velocity vector to location vector to drop raindrops
   void drop() {
     loc.add(vel);
   }
@@ -31,9 +31,10 @@ class Rain {
     vel.add(acc);
   }
 
-  //The following function will check to see if raindrops are touching catcher.
-  //If so, raindrop location, velocity, and acceleration will reset to zero.  
-  //Raindrop will then disappear.
+  //The following function will check to see if raindrops are touching catcher
+  //If so, raindrop velocity and acceleration will reset to zero
+  //If so, raindrop location will reset to zero, and raindrop will disappear
+  //If so, score increases
   void checkCatcher(Catcher c) {
     if (loc.dist(c.loc) <= d/2 + c.d/2) {
       loc.set(-100, -100);
@@ -41,6 +42,8 @@ class Rain {
       acc.set(0, 0);
       score++;
     }
+    //The following if statement says if the y location of the raindrop is greater than the height, 
+    //meaning it has "fallen off" the screen, lives will be taken away from the player 
     if (loc.y > height) { 
       loc.set(-100, -100);
       vel.set(0, 0);

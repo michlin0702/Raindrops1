@@ -1,11 +1,11 @@
 //Create a new class called Catcher, which will control the game's rain catcher
 class Catcher {
-//Declare all variables and images
+//Declare variables and images
   PImage boots;
   PVector loc;
   int d;
 
-//Create catcher constructor, which includes catcher details
+  //Create catcher constructor, which includes catcher details
   Catcher() {
     boots = loadImage("Rainboots.png");
     d = boots.width/2;
